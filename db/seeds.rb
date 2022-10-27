@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+p "Generating fake items"
+20.times do
+  Item.find_or_create_by(name: Faker::Books::CultureSeries.book, active:true, borrowed:false)
+end
+
+p "#{Item.count} items generated"

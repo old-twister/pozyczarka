@@ -5,12 +5,13 @@
 <%= link_to "New item", new_item_path %>
 
 <div id="items" class="container-fluid">
-  <table class=""table">
+  <table class="table">
     <thead>
       <tr>
         <th>Name</th>
         <th>Active</th>
         <th>Borrowed</th>
+        <th>Item type</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
       <td><%= item.name %></td>
       <td class="text-center"><%= item.active ? '✅' : '🚫' %></td>
       <td class="text-center"><%= item.borrowed ? '✅' : '🚫' %></td>
+      <td><%= item.item_type %></td>
       <td>
         <%= link_to "Show this item", item, class: 'btn btn-primary' %>
       </td>

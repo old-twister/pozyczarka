@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  active     :boolean
+#  borrowed   :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  item_type  :integer          default("other"), not null
+#
 class Item < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 

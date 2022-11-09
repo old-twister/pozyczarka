@@ -23,12 +23,12 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
+  gem 'faker', '~> 2.23'
 end
 
 group :development do
   gem 'annotate', '~> 3.2'
   gem "web-console"
-  gem 'faker', '~> 2.23'
   gem 'hotwire-livereload'
 end
 

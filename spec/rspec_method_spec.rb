@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Item do
   it 'creates item with name' do
     item = Item.create(name: 'book')

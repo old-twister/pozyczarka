@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: items
@@ -17,8 +19,8 @@ class Item < ApplicationRecord
 
   validates :item_type, inclusion: { in: item_types.keys }
 
-  scope :active, -> { where(active: true)}
-  scope :inactive, -> { where(active: false)}
-  scope :borrowed, -> { where(borrowed: true)}
-  scope :on_place, -> { where(borrowed: false)}
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :borrowed, -> { where(borrowed: true) }
+  scope :on_place, -> { where(borrowed: false) }
 end

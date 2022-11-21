@@ -1,5 +1,6 @@
-class MyLogger
+# frozen_string_literal: true
 
+class MyLogger
   attr_reader :messages
 
   def initialize
@@ -27,7 +28,7 @@ describe MyLogger do
   end
 
   context 'for_logging' do
-    let(:message1) {'Other message'}
+    let(:message1) { 'Other message' }
 
     before do
       logger.log(message1)
@@ -35,8 +36,8 @@ describe MyLogger do
     end
 
     it 'add message to messages array' do
-    expect(logger.messages).to include message1
-    expect(logger.messages).to include message2
+      expect(logger.messages).to include message1
+      expect(logger.messages).to include message2
     end
 
     it 'add message to messages array2' do

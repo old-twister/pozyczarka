@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'items#index'
   resources :items do
@@ -8,5 +10,4 @@ Rails.application.routes.draw do
       get :on_place
     end
   end
-
 end

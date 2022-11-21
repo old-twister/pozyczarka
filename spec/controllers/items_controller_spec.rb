@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ItemsController, type: :controller do
   describe 'GET #index' do
     subject(:index_request) { get :index }
@@ -159,5 +161,4 @@ describe ItemsController, type: :controller do
       expect(response).to render_template('on_place')
     end
   end
-
 end

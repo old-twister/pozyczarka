@@ -20,13 +20,13 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'brakeman', '~> 5.3', '>= 5.3.1'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'devise'
   gem 'faker', '~> 2.23'
   gem 'rails_best_practices', '~> 1.23', '>= 1.23.2'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec'
-  gem 'devise'
 end
 
 group :development do

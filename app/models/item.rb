@@ -25,5 +25,4 @@ class Item < ApplicationRecord
   scope :on_place, -> { where(borrowed: false) }
 
   belongs_to :user, optional: true
-
 end

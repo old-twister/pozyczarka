@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       get :on_place
     end
   end
+  resources :friends, only: %i[index show]
 end

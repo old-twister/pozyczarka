@@ -6,6 +6,7 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+
 # Offense count: 2
 Lint/UselessAssignment:
   Exclude:
@@ -15,7 +16,7 @@ Lint/UselessAssignment:
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, AllowedMethods, AllowedPatterns, IgnoredMethods.
 # AllowedMethods: refine
 Metrics/BlockLength:
-  Max: 136
+  Max: 140
 
 # Offense count: 1
 # Configuration parameters: AllowedMethods, AllowedPatterns, IgnoredMethods.
@@ -50,6 +51,8 @@ Style/Documentation:
 Style/IfUnlessModifier:
   Exclude:
     - 'bin/bundle'
+    - 'db/**/*'
+    - 'config/**/*'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).

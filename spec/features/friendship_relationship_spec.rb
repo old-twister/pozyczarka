@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 describe 'Friendship relation' do
-  let(:user) {create(:user)}
+  let(:user) { create(:user) }
 
   describe 'add friend' do
-    let(:friend) {create(:user)}
+    let(:friend) { create(:user) }
 
     it 'can add new friend' do
       user.friends << friend
@@ -12,7 +14,7 @@ describe 'Friendship relation' do
   end
 
   describe 'friends list' do
-    let(:friends) {create_list(:user, 5)}
+    let(:friends) { create_list(:user, 5) }
 
     it 'list friends for user' do
       friends.each do |friend|

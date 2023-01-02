@@ -46,9 +46,8 @@ Style/Documentation:
     - 'db/migrate/20221027181617_create_items.rb'
     - 'db/migrate/20221102170749_add_item_type_to_item.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/IfUnlessModifier:
+
+AllCops:
   Exclude:
     - 'bin/bundle'
     - 'db/**/*'
@@ -56,7 +55,16 @@ Style/IfUnlessModifier:
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
+Style/IfUnlessModifier:
+  Exclude:
+    - 'bin/bundle'
+
+# Offense count: 1
+# This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, AllowedPatterns, IgnoredPatterns.
 # URISchemes: http, https
 Layout/LineLength:
   Max: 198
+
+Style/Documentation:
+  Enabled: false

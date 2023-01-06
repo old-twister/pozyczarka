@@ -9,7 +9,7 @@ describe 'Friendship relation' do
     it 'can add new friend' do
       user.friends << friend
       user.save!
-      expect(user.reloads.friend.last).to eq friend
+      expect(user.reload.friends.last).to eq friend
     end
   end
 

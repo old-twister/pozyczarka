@@ -10,10 +10,22 @@ class InvitationsController < ApplicationController
     end
     redirect_to friends_path
   end
-end
+
+  def accept
+    invitation = current_user.received_invitations.find(params[:id])
+    invitation.accept!
+    if invitation.accepted?
+      current_user.friends << invitation.inviting_user
+      invitation.inviting_user.friends << current_user
+    end
+    redirect_to invitations_path
+  end
+
 
 private
 
 def invitation_params
   params.require(:invitation).permit(:email)
+end
+
 end

@@ -69,8 +69,11 @@ describe InvitationsController, type: :controller do
       end
     end
 
-    context 'when invitation cannot be accepted' do
+    it 'creates friendship for users from invitation' do
+      expect { accept_request }.to change(Friendship, :count).by(2)
+    end
 
+    context 'when invitation cannot be accepted' do
       before do
         invitation.accept!
       end
@@ -82,7 +85,38 @@ describe InvitationsController, type: :controller do
   end
 
   describe '#reject' do
+    let(:friend) { create(:user)}
+    let(:invitation) { create(:invitation, invited_id: user.id, invited_by_id: friend.id) }
+    let(:params) {{ id: invitation.id }}
 
+    subject(:reject_request) { post :reject, params: params }
+
+    it 'reject the invitation' do
+      expect { reject_request }.to change { invitation.reload.state }.from("pending").to("rejected")
+    end
+
+    it 'does not create any friendship' do
+        expect { reject_request }.not_to change(Friendship, :count)
+    end
+
+    context 'when invitation does not belong to user' do
+      let(:invitation) { create(:invitation, invited_by_id: friend.id, invited_id: 121563465765) }
+
+      it 'cannot reject this invitation' do
+        expect { reject_request }.to raise_error ActiveRecord::RecordNotFound
+      end
+    end
+
+    context 'when invitation cannot be rejected' do
+
+      before do
+        invitation.reject!
+      end
+
+      it 'raises error' do
+        expect { reject_request }.to raise_error  AASM::InvalidTransition
+      end
+    end
   end
 
 end

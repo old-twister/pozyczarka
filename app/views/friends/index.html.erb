@@ -7,7 +7,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title fs-5" id="exampleModalLabel">
-          Invite new friend
+          Invite friend
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -17,13 +17,18 @@
             <%= form.label :email, class: 'form-label' %>
             <%= form.text_field :email, class: 'form-control form-control-lg', placeholder: 'Email' %>
           </div>
+        </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <%= form.submit 'Send invitation', class: 'btn btn-primary' %>
-      </div>
+        </div>
       <% end %>
     </div>
   </div>
-  </div>
 </div>
+
 <%= render 'invitations/invitations', received_invitations: @received_invitations, sent_invitations: @sent_invitations %>
+
+<% @friends.each do |friend| %>
+  <%= render 'friends/friend', friend: friend %>
+<% end %>

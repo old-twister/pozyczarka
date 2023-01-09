@@ -11,7 +11,12 @@ Rails.application.routes.draw do
       get :on_place
     end
   end
-  resources :friends, only: %i[index show]
+  resources :friends, only: %i[index show] do
+    member do
+      get :items
+      get :chat
+    end
+  end
   resources :invitations, only: %i[create] do
     member do
       post :accept

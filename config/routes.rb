@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       get :borrowed
       get :on_place
     end
+    member do
+      post :request_rent
+      post :return_item
+    end
   end
   resources :friends, only: %i[index show] do
     member do
@@ -32,4 +36,13 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
+
+  resources :rental_requests, only: %i[] do
+    member do
+      post :accept
+      post :reject
+    end
+  end
+
+  resource :messages, only: %i[create]
 end

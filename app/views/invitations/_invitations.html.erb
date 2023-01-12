@@ -30,7 +30,7 @@
     <div class="card mt-4">
       <div class="card-body">
         <div class="card-title">
-          <%= invitation.inviting_user.email %>
+          <%= invitation.invited_user.email %>
         </div>
         <p class="<%= invitation_status_class(invitation) %>">
           <%= invitation.state %>

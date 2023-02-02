@@ -4,8 +4,7 @@ class MessagesController < ApplicationController
     message = Message.new(message_params)
     message.sender_id = current_user.id
     message.save!
-    # @new_message = Message.new(receipient_id: message.receipient_id)
-    redirect_to chat_friend_path(message.receipient_id)
+    @new_message = Message.new(receipient_id: message.receipient_id)
   end
 
   private
